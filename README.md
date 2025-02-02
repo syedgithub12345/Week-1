@@ -1,6 +1,6 @@
 # Waste Classification using Convolutional Neural Network (CNN)
 
-This project is part of the **Week 1** milestone for the **Edunet Foundation Internship** in collaboration with AICTE & Shell. The task is to classify waste images into two categories: **Organic** and **Recyclable**. In this milestone, we completed the data preprocessing and initial setup for the project, including data visualization and the development of the base CNN model.
+This project is part of the **Week 1**, **Week 2** milestones for the **Edunet Foundation Internship** in collaboration with AICTE & Shell. The task is to classify waste images into two categories: **Organic** and **Recyclable**. In this milestone, we completed the data preprocessing and initial setup for the project, including data visualization and the development of the base CNN model.
 
 ---
 Work Done By- Syed Safi Hasnain Naqvi
