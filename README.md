@@ -8,9 +8,9 @@ Work Done By- Syed Safi Hasnain Naqvi
 ## Week 1 Summary
 
 ### Tasks Completed:
-- **Data Loading & Preprocessing**: Images were loaded and preprocessed from the provided dataset.
-- **Data Visualization**: Visualized the distribution of waste categories (Organic vs Recyclable) in the dataset.
-- **Model Setup**: Set up the initial stages for building a Convolutional Neural Network (CNN) for image classification.
+- **✅Data Loading & Preprocessing**: Images were loaded and preprocessed from the provided dataset.
+- **✅Data Visualization**: Visualized the distribution of waste categories (Organic vs Recyclable) in the dataset.
+- **✅Model Setup**: Set up the initial stages for building a Convolutional Neural Network (CNN) for image classification.
 
 ---
 ## Week 2 Summary
@@ -19,13 +19,13 @@ In Week 2, we implemented data augmentation, model training, and performance eva
 
 ### Tasks Completed:
 
-**Data Augmentation**: Implemented transformations like rescaling, rotation, zoom, and flipping to enhance model generalization.
+**✅Data Augmentation**: Implemented transformations like rescaling, rotation, zoom, and flipping to enhance model generalization.
 
-**CNN Model Implementation**: Built a multi-layer Convolutional Neural Network for classification.
+**✅CNN Model Implementation**: Built a multi-layer Convolutional Neural Network for classification.
 
-**Model Compilation & Training**: Used Adam optimizer and binary cross-entropy loss function.
+**✅Model Compilation & Training**: Used Adam optimizer and binary cross-entropy loss function.
 
-**Evaluation**: Analyzed model performance with accuracy and loss metrics.
+**✅Evaluation**: Analyzed model performance with accuracy and loss metrics.
 ---
 
 ## Dataset
@@ -156,6 +156,97 @@ plt.ylabel('Accuracy')
 plt.legend()
 plt.show()
 ```
+---
+## Week 3 Summary
+This week focused on training optimization, performance visualization, and model inference for waste classification. We fine-tuned our CNN model, visualized training performance, and implemented a function for real-time waste classification on test images.
+
+Tasks Completed:
+
+**✅ Final Model Training & Optimization**
+Trained the model for 2 additional epochs to improve accuracy.
+Fine-tuned hyperparameters for better generalization.
+
+**✅ Training Performance Visualization**
+Plotted Training vs. Validation Accuracy to track improvements.
+Plotted Training vs. Validation Loss to analyze model convergence.
+
+**✅ Model Inference & Prediction**
+Implemented a predict_func() to classify test images as Organic or Recyclable waste.
+Tested predictions on sample waste images.
+
+---
+Performance Visualization
+Training & Validation Accuracy Plot
+```python
+plt.figure(figsize=(10,6))
+plt.plot(hist.history['accuracy'], label='Train Accuracy')
+plt.plot(hist.history['val_accuracy'], label='Validation Accuracy')
+plt.legend()
+plt.show()
+```
+This helps in understanding how the model's accuracy improves over epochs.
+
+Training & Validation Loss Plot
+```python
+plt.figure(figsize=(10,6))
+plt.plot(hist.history['loss'], label='Train Loss')
+plt.plot(hist.history['val_loss'], label='Validation Loss')
+plt.legend()
+plt.show()
+```
+This plot helps in analyzing if the model is overfitting or underfitting.
+
+## Model Inference: Waste Classification
+A function was implemented to classify waste images as Recyclable or Organic:
+
+```python
+def predict_func(img):
+    plt.figure(figsize=(6,4))
+    plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+    plt.tight_layout()
+    img = cv2.resize(img, (224, 224))
+    img = np.reshape(img, [-1, 224, 224, 3])
+    result = np.argmax(model.predict(img))
+    
+    if result == 0:
+        print("This image shows recyclable waste")
+    elif result == 1:
+        print("This image shows organic waste")
+```
+
+Testing the Model with Sample Images
+```python
+test_img = cv2.imread("/content/dataset/DATASET/TEST/O/O_12926.jpg")
+predict_func(test_img)
+```
+🔹 Prediction: Organic Waste
+
+```python
+test_img = cv2.imread("/content/dataset/DATASET/TEST/R/R_10181.jpg")
+predict_func(test_img)
+```
+🔹 Prediction: Recyclable Waste
+
+---
+Training the Model
+We trained the model for 2 more epochs using the Adam optimizer:
+
+```python
+hist = model.fit(
+    train_generator,
+    epochs=2,
+    validation_data=test_generator
+)
+```
+---
+## Summary of Week 3 Achievements
+
+✔️ Improved Model Performance with additional training.
+
+✔️ Visualized Model Accuracy & Loss for better insights.
+
+✔️ Implemented a Real-Time Prediction Function for waste classification.
+
 
 ---
 
@@ -186,6 +277,7 @@ Special thanks to **Edunet Foundation, AICTE, and Shell** for providing this lea
 
 ---
 
-🚀 **Stay tuned for Week 3 updates!**
+🚀 Week3 Successfully Completed!**
+## Happy Learning:)
 
 ---
